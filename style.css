@@ -18,13 +18,9 @@ button.change-button {
   margin: 2em auto;
   display: flex;
   flex-wrap: wrap;
-  border: 1px solid black;
-  visibility: hidden;
 }
 
 .container > .square {
     box-sizing: border-box;
     border: 1px solid black;
-    width: 60px;
-    height: 60px; 
   }
