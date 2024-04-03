@@ -1,0 +1,30 @@
+* {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+  padding: 4em;
+}
+
+button.change-button {
+  display: block;
+  margin: 0 auto;
+  padding: 1em;
+  font-weight: bold;
+}
+
+.container {
+  width: 960px;
+  margin: 2em auto;
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid black;
+  visibility: hidden;
+}
+
+.container > .square {
+    box-sizing: border-box;
+    border: 1px solid black;
+    width: 60px;
+    height: 60px; 
+  }
