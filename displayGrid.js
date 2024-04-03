@@ -1,4 +1,8 @@
-const container = document.querySelector(".container");
+const container = document.querySelector("div.container");
+const containerCompStyle = window.getComputedStyle(container)
+const containerWidth = parseInt(containerCompStyle.getPropertyValue("width"));
+
+console.log(containerWidth);
 let gridSize;
 
 setGridSize();
@@ -16,12 +20,11 @@ function setGridSize() {
 
 function generateGrid() {
   for(let i = 0; i < gridSize**2; i++) {
-    let div = document.createElement("div");
+    const div = document.createElement("div");
     div.classList.add("square");
-    let squareSize = (960 / gridSize) + "px";
+    const squareSize = (containerWidth / gridSize) + "px";
     div.style.width = squareSize;
     div.style.height = squareSize;
     container.appendChild(div);
   }
 }
-
