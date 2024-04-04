@@ -7,17 +7,16 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  
   <div class="content">
     <div class="options">
       <h2>OPTIONS:</h2>
       <div class="grid-size">
-        <label for="grid-size">grid size: <span id="grid-size-text"></span></label>
-        <input type="range" min="16" max="100" value="16" class="slider" id="grid-size">
+        <label for="grid-size-slider">grid size: <span id="grid-size-text"></span></label>
+        <input type="range" min="16" max="100" value="16" id="grid-size-slider">
       </div>
       <div class="color">
         <label for="color">choose color:</label>
-        <input type="color">
+        <input type="color" id="color-picker">
       </div>
       <div class="clear">
         <button id="clear-button">clear</button>
@@ -26,7 +25,6 @@
     <div class="container">
     </div>
   </div>
-
   <script src="js/displayGrid.js"></script>
   <script src="js/main.js"></script>
 </body>

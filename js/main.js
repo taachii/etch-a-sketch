@@ -1,5 +1,6 @@
 const squares = document.querySelectorAll(".square");
 const clearButton = document.querySelector("#clear-button");
+const colorPicker = document.querySelector("#color-picker");
 
 let isMouseDown = false;
 let color = "blue";
@@ -14,6 +15,10 @@ container.addEventListener("mouseup", () => {
 
 squares.forEach(square => {
   square.addEventListener("mousemove", addColor)
+});
+
+colorPicker.addEventListener("input", () => {
+    color = colorPicker.value;
 });
 
 clearButton.addEventListener("click", clear);

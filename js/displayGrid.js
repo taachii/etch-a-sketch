@@ -1,8 +1,14 @@
 const container = document.querySelector("div.container");
+const slider = document.querySelector("#grid-size-slider");
+
 const containerCompStyle = window.getComputedStyle(container)
 const containerWidth = parseInt(containerCompStyle.getPropertyValue("width"));
-let gridSize = 16;
 
+let gridSize;
+
+slider.addEventListener("input", setGridSize);
+
+setGridSize();
 generateGrid();
 
 function generateGrid() {
@@ -14,4 +20,9 @@ function generateGrid() {
     div.style.height = squareSize;
     container.appendChild(div);
   }
+}
+
+function setGridSize() {
+  let sliderValue = slider.value;
+  gridSize = sliderValue;
 }
