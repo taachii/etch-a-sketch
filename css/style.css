@@ -57,9 +57,9 @@ body {
     }
 
     .options > div > button {
-      width: 80%;
-      padding: 0.5em;
-      font-size: 1.2em;
+      width: 70%;
+      padding: 0.4em;
+      font-size: 1em;
       font-weight: bold;
 
     }
