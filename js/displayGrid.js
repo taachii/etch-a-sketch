@@ -6,7 +6,7 @@ const containerWidth = parseInt(containerCompStyle.getPropertyValue("width"));
 
 let gridSize;
 
-slider.addEventListener("input", setGridSize);
+slider.addEventListener("input", regenerateGrid);
 
 setGridSize();
 generateGrid();
@@ -22,7 +22,20 @@ function generateGrid() {
   }
 }
 
+function regenerateGrid() {
+  deleteAllSquares();
+  setGridSize();
+  generateGrid();
+}
+
 function setGridSize() {
   let sliderValue = slider.value;
   gridSize = sliderValue;
+}
+
+function deleteAllSquares() {
+  const squareCount = container.childElementCount;
+  for(let i = 0; i < squareCount; i++) {
+    container.removeChild(container.lastChild);
+  }
 }
