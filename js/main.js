@@ -7,17 +7,19 @@ const containerCompStyle = window.getComputedStyle(container)
 const containerWidth = parseInt(containerCompStyle.getPropertyValue("width"));
 
 let isMouseDown = false;
-let color = "blue";
-
 let squares; 
 let gridSize;
+let color;
 
 init();
-setGridSize();
 generateGrid();
 
 function init() {
+  setColor();
+  setGridSize();
+
   slider.addEventListener("input", regenerateGrid);
+  clearButton.addEventListener("click", clear);
 
   container.addEventListener("mousedown", () => {
     isMouseDown = true;
@@ -28,10 +30,12 @@ function init() {
   });
   
   colorPicker.addEventListener("input", () => {
-      color = colorPicker.value;
+      setColor();
   });
-  
-  clearButton.addEventListener("click", clear);
+}
+
+function setColor() {
+  color = colorPicker.value;
 }
 
 function setGridSize() {
