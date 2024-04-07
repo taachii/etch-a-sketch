@@ -10,16 +10,29 @@
   <div class="content">
     <div class="options">
       <h2>OPTIONS:</h2>
-      <div class="grid-size">
-        <label for="grid-size-slider">grid size: <span id="grid-size-text"></span></label>
-        <input type="range" min="16" max="100" value="16" id="grid-size-slider">
+      <div class="inputs">
+        <div class="grid-size">
+          <label for="grid-size-slider">grid size: <span id="grid-size-text"></span></label>
+          <input type="range" min="16" max="100" value="16" id="grid-size-slider">
+        </div>
+        <div class="color">
+          <label for="color">choose color:</label>
+          <input type="color" id="color-picker">
+        </div>
       </div>
-      <div class="color">
-        <label for="color">choose color:</label>
-        <input type="color" id="color-picker">
-      </div>
-      <div class="clear">
-        <button id="clear-button">clear</button>
+      <div class="buttons">
+        <div class="clear">
+          <button id="clear-button">clear</button>
+        </div>
+        <div class="eraser">
+          <button id="eraser-button">eraser</button>
+        </div>
+        <div class="rainbow">
+          <button id="rainbow-button">rainbow</button>
+        </div>
+        <div class="darkening">
+          <button id="darkening-button">darkening</button>
+        </div>
       </div>
     </div>
     <div class="container">

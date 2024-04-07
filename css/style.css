@@ -25,44 +25,68 @@ body {
   background-color: #bbbbbb;
   border: 0.5em solid#8c8c8c;
   border-radius: 1em;
-  padding: 1em 4em;
+  padding: 2em 2em;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2em;
+  justify-content: space-around;
 }
 
   .options > h2 {
+    margin: 0;
     color: rgb(10, 186, 10);
     font-weight: bold;
     font-size: 1.8em;
     text-shadow: 1px 1px 2px #333333;
   }
 
-  .options > div {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1em;
-    
-  }
+.inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2em;
+}
 
-    .options > div > label {
-      font-size: 1.2em;
-      font-weight: bold;
-      color:#ffffff;
-      text-shadow: 1px 1px 2px #000000;
-    }
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2em;
+}
 
+button {
+  width: 100%;
+  padding: 0.5em;
+  font-size: 1em;
+  font-weight: bold;
+  border-radius: 0.5em;
+}
+
+button:hover,
+input[type="color"]:hover {
+  cursor: pointer;
+}
+
+input[type="range"]:hover {
+  cursor: grab;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5em;
+  font-size: 1.2em;
+  font-weight: bold;
+  color:#f4f4f4;
+  text-shadow: 1px 1px 2px #000000;
+}
+
+  /*
     .options > div > button {
       width: 70%;
       padding: 0.4em;
       font-size: 1em;
       font-weight: bold;
 
-    }
+    } */
     
 .container {
   width: 37.5vw;
@@ -72,6 +96,6 @@ body {
 
   .container > .square {
       box-sizing: border-box;
-      border: 1px solid black;
+      border: 1px solid rgb(56, 56, 56);
       background-color: white;
     }

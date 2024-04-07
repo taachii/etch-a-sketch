@@ -1,12 +1,16 @@
-const clearButton = document.querySelector("#clear-button");
-const colorPicker = document.querySelector("#color-picker");
 const container = document.querySelector("div.container");
 const slider = document.querySelector("#grid-size-slider");
+const colorPicker = document.querySelector("#color-picker");
+const clearButton = document.querySelector("#clear-button");
+const eraserButton = document.querySelector("#eraser-button");
+const rainbowButton = document.querySelector("#rainbow-button");
+const darkeningButton = document.querySelector("#darkening-button");
 
 const containerCompStyle = window.getComputedStyle(container)
 const containerWidth = parseInt(containerCompStyle.getPropertyValue("width"));
 
 let isMouseDown = false;
+let isRainbow = false;
 let squares; 
 let gridSize;
 let color;
@@ -17,22 +21,9 @@ generateGrid();
 function init() {
   setColor();
   setGridSize();
-
-  slider.addEventListener("input", regenerateGrid);
-  clearButton.addEventListener("click", clear);
-
-  container.addEventListener("mousedown", () => {
-    isMouseDown = true;
-  });
-  
-  container.addEventListener("mouseup", () => {
-    isMouseDown = false;
-  });
-  
-  colorPicker.addEventListener("input", () => {
-      setColor();
-  });
+  addEventListeners();
 }
+
 
 function setColor() {
   color = colorPicker.value;
@@ -41,6 +32,40 @@ function setColor() {
 function setGridSize() {
   let sliderValue = slider.value;
   gridSize = sliderValue;
+}
+
+function addEventListeners() {
+  clearButton.addEventListener("click", clear);
+
+  eraserButton.addEventListener("click", () => {
+    color = "white";
+  })
+
+  slider.addEventListener("input", regenerateGrid);
+
+  slider.addEventListener("mousedown", () => {
+    slider.style.cursor = "grabbing";
+  });
+
+  slider.addEventListener("mouseup", () => {
+    slider.style.cursor = "grab";
+  });
+
+  container.addEventListener("mousedown", () => {
+    isMouseDown = true;
+  });
+
+  container.addEventListener("mouseup", () => {
+    isMouseDown = false;
+  });
+
+  container.addEventListener("mouseover", () => {
+    container.style.cursor = "crosshair";
+  });
+
+  colorPicker.addEventListener("input", () => {
+    setColor();
+  });
 }
 
 function generateGrid() {
