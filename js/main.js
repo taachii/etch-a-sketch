@@ -74,6 +74,8 @@ function addEventListeners() {
   });
 
   colorPicker.addEventListener("input", () => {
+    isRainbow = false;
+    isDarkening = false;
     setColor();
   });
 }
@@ -132,6 +134,6 @@ function generateRandomColor() {
 
 function clear() {
   squares.forEach(square => {
-    square.style.background = "white";
+    square.style.background = "rgb(255,255,255)";
   })
 }
