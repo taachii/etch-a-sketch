@@ -11,6 +11,7 @@ const containerWidth = parseInt(containerCompStyle.getPropertyValue("width"));
 
 let isMouseDown = false;
 let isRainbow = false;
+let isDarkening = false;
 let squares; 
 let gridSize;
 let color;
@@ -24,7 +25,6 @@ function init() {
   addEventListeners();
 }
 
-
 function setColor() {
   color = colorPicker.value;
 }
@@ -36,13 +36,20 @@ function setGridSize() {
 
 function addEventListeners() {
   clearButton.addEventListener("click", clear);
-  rainbowButton.addEventListener("click", () => {
-    isRainbow = true;
-  })
-
   eraserButton.addEventListener("click", () => {
+    isRainbow = false;
     color = "white";
-  })
+  });
+
+  rainbowButton.addEventListener("click", () => {
+    isDarkening = false;
+    isRainbow = true;
+  });
+
+  darkeningButton.addEventListener("click", () => {
+    isRainbow = false;
+    isDarkening = true;
+  });
 
   slider.addEventListener("input", regenerateGrid);
 
@@ -101,17 +108,22 @@ function deleteAllSquares() {
 
 function addColor(e) {
   if(isMouseDown) {
-    if(!isRainbow) {
-      e.target.style.background = color;
+    if(isRainbow){
+      color = generateRandomColor();
     }
-    else {
-      e.target.style.background = generateRandomColor();
+    
+    if(isDarkening) {
+      let currentColor = e.target.style.backgroundColor || "rgb(255,255,255)";
+      let rgb = currentColor.match(/\d+/g);
+      let newColor = 'rgb(' + (parseInt(rgb[0]) - 20) + ',' + (parseInt(rgb[1]) - 20) + ',' + (parseInt(rgb[2]) - 20) + ')';
+      color = newColor;
     }
+
+    e.target.style.background = color;
   }
 }
 
 function generateRandomColor() {
-  console.log(isRainbow);
   let r = Math.floor(Math.random() * 256);
   let g = Math.floor(Math.random() * 256);
   let b = Math.floor(Math.random() * 256);
