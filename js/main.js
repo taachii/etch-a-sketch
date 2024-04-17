@@ -36,6 +36,9 @@ function setGridSize() {
 
 function addEventListeners() {
   clearButton.addEventListener("click", clear);
+  rainbowButton.addEventListener("click", () => {
+    isRainbow = true;
+  })
 
   eraserButton.addEventListener("click", () => {
     color = "white";
@@ -79,7 +82,7 @@ function generateGrid() {
   }
   squares = document.querySelectorAll(".square");
   squares.forEach(square => {
-    square.addEventListener("mousemove", addColor);
+    square.addEventListener("mouseover", addColor);
   });
 }
 
@@ -98,8 +101,21 @@ function deleteAllSquares() {
 
 function addColor(e) {
   if(isMouseDown) {
-    e.target.style.background = color;
+    if(!isRainbow) {
+      e.target.style.background = color;
+    }
+    else {
+      e.target.style.background = generateRandomColor();
+    }
   }
+}
+
+function generateRandomColor() {
+  console.log(isRainbow);
+  let r = Math.floor(Math.random() * 256);
+  let g = Math.floor(Math.random() * 256);
+  let b = Math.floor(Math.random() * 256);
+  return "rgb(" + r + "," + g + "," + b + ")";
 }
 
 function clear() {
